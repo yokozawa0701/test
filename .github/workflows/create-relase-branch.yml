@@ -30,5 +30,4 @@ jobs:
       - name: after error
         if: failure()
         run: |
-          git switch develop
-          git branch -D release
+          git push origin -D release
