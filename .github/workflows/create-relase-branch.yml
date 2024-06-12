@@ -1,14 +1,13 @@
 name: Create Release Branch and PR
 
 on:
-  push: develop
+  push:
+    branches:
+      - develop
 
 jobs:
   create_pr:
     runs-on: ubuntu-latest
-    env:
-      # githubのコンソールから入力したリリース名を環境変数へ保存
-      RELEASE_BRANCH_NAME: release/${{ github.event.inputs.version }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -16,6 +15,7 @@ jobs:
         with:
           ruby-version: 3.1
       - name: Create and push release branch
+        continue-on-error: true
         run: |
           git switch release || git switch -c release
           git push origin release
