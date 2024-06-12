@@ -30,4 +30,4 @@ jobs:
       - name: after error
         if: failure()
         run: |
-          git push origin -D release
+          git push origin -d release
