@@ -8,9 +8,6 @@ on:
 jobs:
   create_pr:
     runs-on: ubuntu-latest
-    env:
-      # githubのコンソールから入力したリリース名を環境変数へ保存
-      RELEASE_BRANCH_NAME: release/${{ github.event.inputs.version }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
