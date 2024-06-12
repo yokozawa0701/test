@@ -1,7 +1,9 @@
 name: Create Release Branch and PR
 
 on:
-  push: develop
+  push:
+    branches:
+      - develop
 
 jobs:
   create_pr:
